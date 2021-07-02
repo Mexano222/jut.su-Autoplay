@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         jut.su Autoplay
 // @namespace    http://tampermonkey.net/
-// @version      1.3
+// @version      1.3.1
 // @description  Autoplay script for jut.su
 // @author       DOROK
 // @match        https://jut.su/*
@@ -24,8 +24,8 @@
 
         function skip(a) {
             if (!a.classList.contains("vjs-hidden")) {
-                a.click()
-            };
+                a.click();
+            }
         }
 
         function isFullscreen() {
@@ -53,7 +53,7 @@
         }
 
         console.log(isFullscreen());
-        if (video && controlBar && skipButton && nextButton && isFullscreen()) {
+        if (video && controlBar && skipButton && nextButton && isFullscreen() && !document.fullscreen) {
             setInterval(() => {
                 skip(skipButton);
                 skip(nextButton);
@@ -71,13 +71,13 @@
                     video.setAttribute("style", "position: fixed; z-index: 101; background-color: black;");
 
                     controlBar.setAttribute("style", "position: fixed; z-index: 101;");
-                };
+                }
             }, 1000);
 
             document.body.addEventListener('keydown', confirmDisable);
         } else {
             setTimeout(mainFunc, 300);
         }
-    };
+    }
     mainFunc();
 })();
