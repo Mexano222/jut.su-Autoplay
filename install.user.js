@@ -13,8 +13,8 @@
     function mainFunc() {
         var video = document.querySelector("#my-player_html5_api");
         var controlBar = document.querySelector(".vjs-control-bar");
-        var skipButton = document.querySelector(".vjs-overlay-bottom-left, .vjs-overlay-skip-intro");
-        var nextButton = document.querySelector(".vjs-overlay-bottom-right, .vjs-overlay-skip-intro");
+        var skipButton = document.getElementsByClassName("vjs-overlay-bottom-left vjs-overlay-skip-intro")[0];
+        var nextButton = document.getElementsByClassName("vjs-overlay-bottom-right vjs-overlay-skip-intro")[0];
 
         const windowWidth = window.innerWidth * window.devicePixelRatio;
         const windowHeight = window.innerHeight * window.devicePixelRatio;
