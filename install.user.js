@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         jut.su Autoplay
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  Autoplay script for jut.su
 // @author       DOROK
 // @match        https://jut.su/*
@@ -51,12 +51,6 @@
                 disableScript();
             }
         }
-
-        window.addEventListener("resize", () => {
-            setTimeout(() => {
-
-            }, 100);
-        })
 
         console.log(isFullscreen());
         if (video && controlBar && skipButton && nextButton && isFullscreen()) {
