@@ -1,5 +1,5 @@
-# JUT.SU Autoplay
-jut.su Autoplay, auto skip openings, auto fullscreen
+# JUT.SU auto play
+jut.su auto play, auto skip openings, auto fullscreen
 
 Скрипт пропускает опенинги и эндинги, автоматически переходит к следующей серии.
 Работает только в полноэкранном режиме браузера(F11).
