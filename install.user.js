@@ -1,20 +1,21 @@
 // ==UserScript==
 // @name         jut.su Autoplay
 // @namespace    http://tampermonkey.net/
-// @version      1.3.2
+// @version      1.3.3
 // @description  Autoplay script for jut.su
 // @author       DOROK
 // @match        https://jut.su/*
 // @icon         https://www.google.com/s2/favicons?domain=jut.su
 // ==/UserScript==
 
-(function () {
+(function() {
     'use strict';
+
     function mainFunc() {
         var video = document.querySelector("#my-player_html5_api");
         var controlBar = document.querySelector(".vjs-control-bar");
         var skipButton = document.getElementsByClassName("vjs-overlay-bottom-left vjs-overlay-skip-intro")[0];
-        var nextButton = document.getElementsByClassName("vjs-overlay-bottom-right vjs-overlay-skip-intro")[0];
+        var nextButton = document.getElementsByClassName("vjs-overlay-bottom-right vjs-overlay-skip-intro")[0] ? document.getElementsByClassName("vjs-overlay-bottom-right vjs-overlay-skip-intro")[0] : null;
 
         const windowWidth = window.innerWidth * window.devicePixelRatio;
         const windowHeight = window.innerHeight * window.devicePixelRatio;
@@ -52,10 +53,12 @@
             }
         }
 
-        if (video && controlBar && skipButton && nextButton) {
+        if (video && controlBar && skipButton) {
             setInterval(() => {
                 skip(skipButton);
-                skip(nextButton);
+                if (nextButton != null) {
+                    skip(nextButton);
+                }
 
                 if (!playStarted && isFullscreen() && !document.fullscreen) {
                     document.querySelector(".vjs-big-play-button").click();
